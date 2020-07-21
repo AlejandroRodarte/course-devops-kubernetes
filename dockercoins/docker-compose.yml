@@ -2,25 +2,19 @@ version: "2"
 
 services:
   rng:
-    build: rng
-    ports:
-    - "8001:80"
+    image: dockercoins/rng:v0.1
 
   hasher:
-    build: hasher
-    ports:
-    - "8002:80"
+    image: dockercoins/hasher:v0.1
 
   webui:
-    build: webui
+    image: dockercoins/webui:v0.1
     ports:
     - "8000:80"
-    volumes:
-    - "./webui/files/:/files/"
 
   redis:
     image: redis
 
   worker:
-    build: worker
+    image: dockercoins/worker:v0.1
 
